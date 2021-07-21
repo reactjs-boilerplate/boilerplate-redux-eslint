@@ -1,16 +1,47 @@
 {
     "root": true,
-    "extends": "airbnb",
     "env": {
-        "node": true,
-        "mocha": true,
-        "es6": true
+        "browser": true,
+        "es2021": true
     },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:prettier/recommended",
+        "prettier",
+        "airbnb"
+    ],
     "globals": {
-        "localStorage": true,
-        "sessionStorage": true
+        "localStorage": false,
+        "sessionStorage": false
+    },
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "settings": {
+        "import/resolve": {
+            "moduleDirectory": [
+                "node_modules",
+                "app"
+            ]
+        }
     },
     "rules": {
+        "prettier/prettier": [
+            "error", 
+            { 
+                "singleQuote": true,
+                "arrowParens": "avoid"
+            }
+        ],
         "no-undef": "off",
         "no-lone-blocks": "off",
         "object-shorthand": "off",
@@ -103,23 +134,5 @@
         "import/no-named-as-default": "error",
         "import/no-unresolved": "off",
         "linebreak-style": 0
-    },
-    "parser": "babel-eslint",
-    "plugins": [
-        "react"
-    ],
-    "settings": {
-        "import/resolve": {
-            "moduleDirectory": [
-                "node_modules",
-                "app"
-            ]
-        }
-    },
-    "parserOptions": {
-        "sourceType": "module",
-        "ecmaFeatures": {
-            "legacyDecorators": true
-        }
     }
 }
